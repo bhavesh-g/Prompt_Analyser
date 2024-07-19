@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Prompt Analyser</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #666;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            font-size: 1.4em;
+            margin-top: 15px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f5f5f5;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+        .footer a {
+            color: #333;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://promptanalyser.pythonanywhere.com/">/app</a>
+    <div class="container">
+        <h1>API Documentation - Prompt Analyser</h1>
+
+        <h2>Overview</h2>
+        <p>The Prompt Analyser API provides functionality to calculate the token count for a given text prompt based on the selected model. It is designed to help users estimate the token usage and cost associated with processing text prompts using various models.</p>
+
+        <h2>API Endpoint</h2>
+        <p>The API endpoint for accessing the token count functionality is:</p>
+        <pre><code>POST https://promptanalyser.pythonanywhere.com/api/token_count</code></pre>
+
+        <h2>Request Format</h2>
+        <p>The API accepts a POST request with the following JSON payload:</p>
+        <pre><code>
+{
+    "prompt": "Your text prompt here",
+    "model": "Selected model name"
+}
+        </code></pre>
+        <p>Replace <code>"Your text prompt here"</code> with the text you want to analyze and <code>"Selected model name"</code> with one of the supported model names.</p>
+
+        <h2>Supported Models</h2>
+        <p>The following models are supported:</p>
+        <ul>
+            <li><code>gpt-4</code></li>
+            <li><code>gpt-3.5-turbo</code></li>
+            <li><code>text-embedding-ada-002</code></li>
+            <li><code>text-embedding-3-small</code></li>
+            <li><code>text-embedding-3-large</code></li>
+            <li><code>text-davinci-002</code></li>
+            <li><code>text-davinci-003</code></li>
+            <li><code>davinci</code></li>
+        </ul>
+
+        <h2>Response Format</h2>
+        <p>The API responds with a JSON object containing the following fields:</p>
+        <pre><code>
+{
+    "tokens": "Number of tokens",
+    "token_list": ["List of tokens"],
+    "notification": "Any additional notification"
+}
+        </code></pre>
+        <p><code>"tokens"</code> represents the total number of tokens, <code>"token_list"</code> is an array of tokens (limited to the first 50), and <code>"notification"</code> provides any relevant warnings or messages.</p>
+
+        <h2>Frontend Usage</h2>
+        <p>Visit the frontend at <a href="https://promptanalyser.pythonanywhere.com/" target="_blank">https://promptanalyser.pythonanywhere.com/</a> to interact with the Prompt Analyser. Use the form to enter a prompt and select a model to get the token count and related details.</p>
+
+        <h2>Integration</h2>
+        <p>To integrate the API into your own project, make a POST request to the endpoint with the appropriate payload. Handle the JSON response as described to display token counts and other relevant information to your users.</p>
+
+        <div class="footer">
+            Made with <span style="color: red;">&#10084;</span> by <a href="https://www.linkedin.com/in/mebhaveshg/" target="_blank">Bhavesh Gupta</a> in working hours
+        </div>
+    </div>
+</body>
+</html>
